@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.springsecuritydemo.authserver.mapper.SysRoleMenuMapper">
+
+    <select id="getRoleMenuList" resultType="com.test.springsecuritydemo.authserver.entity.dto.MenuDto">
+        select a.id,a.menu_name ,a.path,a.path,a.perms,a.create_time,
+        a.update_time,a.remark,a.state
+        from ds_sys_menu a left join
+        ds_sys_role_menu b
+        on a.id=b.menu_id
+        <where>
+            b.role_id in
+            <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+            and a.state=1
+        </where>
+
+    </select>
+
+</mapper>
+

@@ -1,0 +1,31 @@
+#server:
+#  port: 8001
+#  servlet:
+#    session:
+#      cookie:
+#        name: OAUTH2-COOKIE-CLIENT1
+#
+#oauth2-server-url: http://127.0.0.1:8080
+#
+#security:
+#  oauth2:
+#    client:
+#      client-id: client
+#      client-secret: secret
+#      user-authorization-uri: ${oauth2-server-url}/oauth/authorize
+#      access-token-uri: ${oauth2-server-url}/oauth/token
+#    resource:
+#      jwt:
+#        key-uri: ${oauth2-server-url}/oauth/token_key
+#
+#
+#spring:
+#  main:
+#    allow-bean-definition-overriding: true
+
+
+#默认使用配置
+spring:
+  profiles:
+    active: dev
+    include: redis
