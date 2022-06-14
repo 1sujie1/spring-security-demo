@@ -25,6 +25,7 @@ public class LoginController {
     //登出
     @PostMapping("logout")
     public BaseResponse logout() {
+        System.out.println(1);
         return loginService.logout();
     }
 
